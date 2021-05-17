@@ -1,8 +1,9 @@
 using Godot;
 using System;
-public class Player : KinematicBody2D
+public class Buz : KinematicBody2D
 {
     [Export] public int speed = 200;
+    [Export] public float runSpeed = 1.2f;
     [Export] public int jumpHeight = 400;
 
     public Vector2 velocity;
@@ -27,6 +28,8 @@ public class Player : KinematicBody2D
         animtree = GetNode("AnimationTree") as AnimationTree;
         animtree.GetRootMotionTransform();
         stateMachine = (AnimationNodeStateMachinePlayback)animtree.Get("parameters/playback");
+        Authenticator.world = "InsideWorld";
+        Position = new Vector2(Authenticator.insidePos.x, Authenticator.insidePos.y);
         isRunning = false;
     }
     public void Idling()
@@ -43,7 +46,14 @@ public class Player : KinematicBody2D
     {
         if (Input.IsActionPressed("right"))
         {
-            velocity.x = speed;
+            if (Input.IsActionPressed("run"))
+            {
+                velocity.x = speed * runSpeed;
+            }
+            else
+            {
+                velocity.x = speed;
+            }
             if (!isRunning)
             {
                 stateMachine.Travel("Transition");
@@ -51,7 +61,14 @@ public class Player : KinematicBody2D
         }
         else if (Input.IsActionPressed("left"))
         {
-            velocity.x = -speed;
+            if (Input.IsActionPressed("run"))
+            {
+                velocity.x = -speed * runSpeed;
+            }
+            else
+            {
+                velocity.x = -speed;
+            }
             if (!isRunning)
             {
                 stateMachine.Travel("Transition");
@@ -86,18 +103,41 @@ public class Player : KinematicBody2D
         {
             stateMachine.Travel("ReverseL");
         }
+
+        if (Input.IsActionJustPressed("tp"))
+        {
+            Authenticator.insidePos = new Vector3(Position.x, Position.y, 0);
+            GetTree().ChangeScene("res://Worlds/World.tscn");
+        }
     }
 
     public override void _PhysicsProcess(float delta)
     {
-        Slope();
-        GetInput();
-        velocity.y += gravity;
+        if (Input.IsActionJustPressed("esc"))
+        {
+            if (GetNode<Control>("EscMenu").Visible)
+            {
+                GetNode<Control>("EscMenu").Visible = false;
+            }
+            else
+            {
+                GetNode<Control>("EscMenu").Visible = true;
+                GetNode<TextureButton>("EscMenu/Sprite/SaveButton").GrabFocus();
+            }
 
-        animtree.Set("parameters/Transition/blend_position", velocity.x);
-        animtree.Set("parameters/Run/blend_position", velocity.x);
+        }
 
-        velocity = MoveAndSlideWithSnap(velocity * delta * 60, snapVector, FLOOR_NORMAL,true,4,FLOOR_MAX_ANGLE);
+        if (!GetNode<Control>("EscMenu").Visible)
+        {
+            Slope();
+            GetInput();
+            velocity.y += gravity;
+
+            animtree.Set("parameters/Transition/blend_position", velocity.x);
+            animtree.Set("parameters/Run/blend_position", velocity.x);
+
+            velocity = MoveAndSlideWithSnap(velocity * delta * 60, snapVector, FLOOR_NORMAL, true, 4, FLOOR_MAX_ANGLE);
+        }
     }
     public void Slope()
     {
@@ -107,7 +147,6 @@ public class Player : KinematicBody2D
         {
             var normal = GetSlideCollision(i).Normal;
             var slopeAngle = Mathf.Rad2Deg(Mathf.Acos(normal.Dot(new Vector2(0, -1))));
-            Console.WriteLine(slopeAngle);
             if (Input.IsActionPressed("left"))
             {
                 slopeAngle = -slopeAngle;
@@ -123,10 +162,18 @@ public class Player : KinematicBody2D
             else if(slopeAngle > MAX_SLOPE_ANGLE)
             {
                 jumpHeight = 150;
+                if (Input.IsActionPressed("run"))
+                {
+                    jumpHeight = 75;
+                }
             }
             else if(slopeAngle < -MAX_SLOPE_ANGLE)
             {
                 jumpHeight = 150;
+                if (Input.IsActionPressed("run"))
+                {
+                    jumpHeight = 75;
+                }
             }
         }
 

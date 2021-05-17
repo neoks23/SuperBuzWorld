@@ -49,7 +49,9 @@
       }
     },
     "frameworks": {
-      "net472": {}
+      "net472": {
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.115\\RuntimeIdentifierGraph.json"
+      }
     }
   }
 }

@@ -5,3 +5,10 @@ D:\ImportantMap\coding\Godot\projects\SuperBuzAdventure\.mono\temp\obj\ExportDeb
 D:\ImportantMap\coding\Godot\projects\SuperBuzAdventure\.mono\temp\obj\ExportDebug\AnimationTest.AssemblyInfo.cs
 D:\ImportantMap\coding\Godot\projects\SuperBuzAdventure\.mono\temp\obj\ExportDebug\AnimationTest.dll
 D:\ImportantMap\coding\Godot\projects\SuperBuzAdventure\.mono\temp\obj\ExportDebug\AnimationTest.pdb
+D:\ImportantMap\coding\Godot\projects\OhShitITookTheWrongPill\.mono\temp\bin\ExportDebug\AnimationTest.dll
+D:\ImportantMap\coding\Godot\projects\OhShitITookTheWrongPill\.mono\temp\bin\ExportDebug\AnimationTest.pdb
+D:\ImportantMap\coding\Godot\projects\OhShitITookTheWrongPill\.mono\temp\obj\ExportDebug\AnimationTest.csprojAssemblyReference.cache
+D:\ImportantMap\coding\Godot\projects\OhShitITookTheWrongPill\.mono\temp\obj\ExportDebug\AnimationTest.AssemblyInfoInputs.cache
+D:\ImportantMap\coding\Godot\projects\OhShitITookTheWrongPill\.mono\temp\obj\ExportDebug\AnimationTest.AssemblyInfo.cs
+D:\ImportantMap\coding\Godot\projects\OhShitITookTheWrongPill\.mono\temp\obj\ExportDebug\AnimationTest.dll
+D:\ImportantMap\coding\Godot\projects\OhShitITookTheWrongPill\.mono\temp\obj\ExportDebug\AnimationTest.pdb
