@@ -217,3 +217,138 @@ func _on_SaveFile3_mouse_entered():
 func _on_SaveFile3_mouse_exited():
 	$SaveFile3/Label.text = "Save 3"
 	pass # Replace with function body.
+
+
+func _on_ResetButton1_button_up():
+	$Reset1.visible = true
+	$Reset1/CloseButton1.grab_focus()
+	$SaveFile1.visible = false
+	$SaveFile2.visible = false
+	$SaveFile3.visible = false
+	$ResetButton1.visible = false
+	$ResetButton2.visible = false
+	$ResetButton3.visible = false
+	pass # Replace with function body.
+
+
+func _on_ResetButton2_button_up():
+	$Reset2.visible = true
+	$Reset2/CloseButton2.grab_focus()
+	$SaveFile1.visible = false
+	$SaveFile2.visible = false
+	$SaveFile3.visible = false
+	$ResetButton1.visible = false
+	$ResetButton2.visible = false
+	$ResetButton3.visible = false
+	pass # Replace with function body.
+
+
+func _on_ResetButton3_button_up():
+	$Reset3.visible = true
+	$Reset3/CloseButton3.grab_focus()
+	$SaveFile1.visible = false
+	$SaveFile2.visible = false
+	$SaveFile3.visible = false
+	$ResetButton1.visible = false
+	$ResetButton2.visible = false
+	$ResetButton3.visible = false
+	pass # Replace with function body.
+
+
+func _on_CloseButton1_button_up():
+	$Reset1.visible = false
+	$SaveFile1.visible = true
+	$SaveFile2.visible = true
+	$SaveFile3.visible = true
+	$ResetButton1.visible = true
+	$ResetButton2.visible = true
+	$ResetButton3.visible = true
+	$SaveFile1.grab_focus()
+	pass # Replace with function body.
+
+
+func _on_YesButton1_button_up():
+	var staticInteractor = load("res://UI/StaticInteractor.cs")
+	var staticInteractorNode = staticInteractor.new()
+	var email = staticInteractorNode.GetEmail()
+	
+	var pos : Dictionary = {
+		"X": 0,
+		"Y": 0,
+		"Z": 0,
+	}
+	
+	var firestore_collection : FirestoreCollection = Firebase.Firestore.collection("userdata")
+	firestore_collection.get(email)
+	var query : FirestoreDocument = yield(firestore_collection, "get_document")
+	var up_task : FirestoreTask = firestore_collection.update(email, {'email': email, 'username': query.doc_fields.get("username"), 'score': 100, 'position': pos, 'insidePosition': pos, 'world': "OverWorld"})
+	var document : FirestoreDocument = yield(up_task, "task_finished")
+	OS.alert("Data reset succesfully!", "Data reset")
+	get_tree().reload_current_scene()
+	pass # Replace with function body.
+
+
+func _on_CloseButton2_button_up():
+	$Reset2.visible = false
+	$SaveFile1.visible = true
+	$SaveFile2.visible = true
+	$SaveFile3.visible = true
+	$ResetButton1.visible = true
+	$ResetButton2.visible = true
+	$ResetButton3.visible = true
+	$SaveFile2.grab_focus()
+	pass # Replace with function body.
+
+
+func _on_YesButton2_button_up():
+	var staticInteractor = load("res://UI/StaticInteractor.cs")
+	var staticInteractorNode = staticInteractor.new()
+	var email = staticInteractorNode.GetEmail()
+	
+	var pos : Dictionary = {
+		"X": 0,
+		"Y": 0,
+		"Z": 0,
+	}
+	
+	var firestore_collection : FirestoreCollection = Firebase.Firestore.collection("userdata1")
+	firestore_collection.get(email)
+	var query : FirestoreDocument = yield(firestore_collection, "get_document")
+	var up_task : FirestoreTask = firestore_collection.update(email, {'email': email, 'username': query.doc_fields.get("username"), 'score': 100, 'position': pos, 'insidePosition': pos, 'world': "OverWorld"})
+	var document : FirestoreDocument = yield(up_task, "task_finished")
+	OS.alert("Data reset succesfully!", "Data reset")
+	get_tree().reload_current_scene()
+	pass # Replace with function body.
+
+
+func _on_CloseButton3_button_up():
+	$Reset3.visible = false
+	$SaveFile1.visible = true
+	$SaveFile2.visible = true
+	$SaveFile3.visible = true
+	$ResetButton1.visible = true
+	$ResetButton2.visible = true
+	$ResetButton3.visible = true
+	$SaveFile3.grab_focus()
+	pass # Replace with function body.
+
+
+func _on_YesButton3_button_up():
+	var staticInteractor = load("res://UI/StaticInteractor.cs")
+	var staticInteractorNode = staticInteractor.new()
+	var email = staticInteractorNode.GetEmail()
+	
+	var pos : Dictionary = {
+		"X": 0,
+		"Y": 0,
+		"Z": 0,
+	}
+	
+	var firestore_collection : FirestoreCollection = Firebase.Firestore.collection("userdata2")
+	firestore_collection.get(email)
+	var query : FirestoreDocument = yield(firestore_collection, "get_document")
+	var up_task : FirestoreTask = firestore_collection.update(email, {'email': email, 'username': query.doc_fields.get("username"), 'score': 100, 'position': pos, 'insidePosition': pos, 'world': "OverWorld"})
+	var document : FirestoreDocument = yield(up_task, "task_finished")
+	OS.alert("Data reset succesfully!", "Data reset")
+	get_tree().reload_current_scene()
+	pass # Replace with function body.

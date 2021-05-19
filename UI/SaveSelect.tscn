@@ -46,7 +46,7 @@ scale = Vector2( 1.30642, 1.30642 )
 texture = ExtResource( 1 )
 
 [node name="SaveSelectBackground1" type="Sprite" parent="."]
-position = Vector2( 512.449, 251.712 )
+position = Vector2( 512.469, 173.853 )
 scale = Vector2( 0.890634, 0.942291 )
 texture = ExtResource( 2 )
 
@@ -64,16 +64,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="SaveSelectBackground3" type="Sprite" parent="."]
+position = Vector2( 512.449, 420.182 )
+scale = Vector2( 0.890634, 0.942291 )
+texture = ExtResource( 2 )
+
 [node name="SaveSelectBackground2" type="Sprite" parent="."]
-position = Vector2( 512.449, 347.863 )
+position = Vector2( 512.469, 270.004 )
 scale = Vector2( 0.890634, 0.942291 )
 texture = ExtResource( 2 )
 
 [node name="SaveFile1" type="TextureButton" parent="."]
-margin_left = 195.306
-margin_top = 198.041
-margin_right = 398.306
-margin_bottom = 498.041
+margin_left = 195.326
+margin_top = 120.182
+margin_right = 398.326
+margin_bottom = 420.182
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 4 )
 __meta__ = {
@@ -108,10 +113,10 @@ __meta__ = {
 }
 
 [node name="SaveFile2" type="TextureButton" parent="."]
-margin_left = 411.841
-margin_top = 198.041
-margin_right = 614.841
-margin_bottom = 498.041
+margin_left = 411.861
+margin_top = 120.182
+margin_right = 614.861
+margin_bottom = 420.182
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 4 )
 __meta__ = {
@@ -146,10 +151,10 @@ __meta__ = {
 }
 
 [node name="SaveFile3" type="TextureButton" parent="."]
-margin_left = 631.002
-margin_top = 198.041
-margin_right = 834.002
-margin_bottom = 498.041
+margin_left = 631.022
+margin_top = 120.182
+margin_right = 834.022
+margin_bottom = 420.182
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 4 )
 __meta__ = {
@@ -187,11 +192,311 @@ __meta__ = {
 position = Vector2( 512.429, 300.004 )
 current = true
 
+[node name="ResetButton1" type="TextureButton" parent="."]
+margin_left = 249.485
+margin_top = 451.862
+margin_right = 341.485
+margin_bottom = 501.862
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+texture_focused = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ResetButton1"]
+margin_left = 5.99998
+margin_right = 85.0
+margin_bottom = 35.0
+custom_fonts/font = SubResource( 4 )
+text = "Reset"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResetButton2" type="TextureButton" parent="."]
+margin_left = 469.066
+margin_top = 451.862
+margin_right = 561.066
+margin_bottom = 501.862
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+texture_focused = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ResetButton2"]
+margin_left = 6.0
+margin_right = 85.0
+margin_bottom = 35.0
+custom_fonts/font = SubResource( 4 )
+text = "Reset"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResetButton3" type="TextureButton" parent="."]
+margin_left = 684.643
+margin_top = 451.862
+margin_right = 776.643
+margin_bottom = 501.862
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+texture_focused = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ResetButton3"]
+margin_left = 6.0
+margin_right = 85.0
+margin_bottom = 35.0
+custom_fonts/font = SubResource( 4 )
+text = "Reset"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Reset1" type="Control" parent="."]
+visible = false
+margin_left = 178.0
+margin_top = 105.0
+margin_right = 846.0
+margin_bottom = 502.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Reset1" type="Sprite" parent="Reset1"]
+position = Vector2( 334.449, 198.483 )
+scale = Vector2( 0.890634, 1.1336 )
+texture = ExtResource( 2 )
+
+[node name="Label2" type="Label" parent="Reset1"]
+margin_left = 102.254
+margin_top = 58.6898
+margin_right = 640.254
+margin_bottom = 202.69
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0.607843, 0, 1 )
+text = "Are you sure?"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CloseButton1" type="TextureButton" parent="Reset1"]
+margin_left = 176.533
+margin_top = 241.981
+margin_right = 268.533
+margin_bottom = 291.981
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+texture_focused = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Reset1/CloseButton1"]
+margin_left = 6.0
+margin_right = 85.0
+margin_bottom = 35.0
+custom_fonts/font = SubResource( 4 )
+text = "Close"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="YesButton1" type="TextureButton" parent="Reset1"]
+margin_left = 412.78
+margin_top = 241.981
+margin_right = 504.78
+margin_bottom = 291.981
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+texture_focused = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Reset1/YesButton1"]
+margin_left = 6.0
+margin_right = 85.0
+margin_bottom = 35.0
+custom_fonts/font = SubResource( 4 )
+text = "Yes"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Reset2" type="Control" parent="."]
+visible = false
+margin_left = 178.0
+margin_top = 105.0
+margin_right = 846.0
+margin_bottom = 502.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Reset2" type="Sprite" parent="Reset2"]
+position = Vector2( 334.449, 198.483 )
+scale = Vector2( 0.890634, 1.1336 )
+texture = ExtResource( 2 )
+
+[node name="Label2" type="Label" parent="Reset2"]
+margin_left = 102.254
+margin_top = 58.6898
+margin_right = 640.254
+margin_bottom = 202.69
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0.607843, 0, 1 )
+text = "Are you sure?"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CloseButton2" type="TextureButton" parent="Reset2"]
+margin_left = 176.533
+margin_top = 241.981
+margin_right = 268.533
+margin_bottom = 291.981
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+texture_focused = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Reset2/CloseButton2"]
+margin_left = 6.0
+margin_right = 85.0
+margin_bottom = 35.0
+custom_fonts/font = SubResource( 4 )
+text = "Close"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="YesButton2" type="TextureButton" parent="Reset2"]
+margin_left = 412.78
+margin_top = 241.981
+margin_right = 504.78
+margin_bottom = 291.981
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+texture_focused = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Reset2/YesButton2"]
+margin_left = 6.0
+margin_right = 85.0
+margin_bottom = 35.0
+custom_fonts/font = SubResource( 4 )
+text = "Yes"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Reset3" type="Control" parent="."]
+visible = false
+margin_left = 178.0
+margin_top = 105.0
+margin_right = 846.0
+margin_bottom = 502.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Reset3" type="Sprite" parent="Reset3"]
+position = Vector2( 334.449, 198.483 )
+scale = Vector2( 0.890634, 1.1336 )
+texture = ExtResource( 2 )
+
+[node name="Label2" type="Label" parent="Reset3"]
+margin_left = 102.254
+margin_top = 58.6898
+margin_right = 640.254
+margin_bottom = 202.69
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0.607843, 0, 1 )
+text = "Are you sure?"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CloseButton3" type="TextureButton" parent="Reset3"]
+margin_left = 176.533
+margin_top = 241.981
+margin_right = 268.533
+margin_bottom = 291.981
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+texture_focused = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Reset3/CloseButton3"]
+margin_left = 6.0
+margin_right = 85.0
+margin_bottom = 35.0
+custom_fonts/font = SubResource( 4 )
+text = "Close"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="YesButton3" type="TextureButton" parent="Reset3"]
+margin_left = 412.78
+margin_top = 241.981
+margin_right = 504.78
+margin_bottom = 291.981
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+texture_focused = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Reset3/YesButton3"]
+margin_left = 6.0
+margin_right = 85.0
+margin_bottom = 35.0
+custom_fonts/font = SubResource( 4 )
+text = "Yes"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="BackButton" type="TextureButton" parent="."]
-margin_left = 468.608
-margin_top = 529.721
-margin_right = 560.608
-margin_bottom = 579.721
+margin_left = 468.628
+margin_top = 515.43
+margin_right = 560.628
+margin_bottom = 565.43
 texture_normal = ExtResource( 6 )
 texture_pressed = ExtResource( 7 )
 texture_focused = ExtResource( 9 )
@@ -225,4 +530,13 @@ __meta__ = {
 [connection signal="focus_exited" from="SaveFile3" to="." method="_on_SaveFile3_focus_exited"]
 [connection signal="mouse_entered" from="SaveFile3" to="." method="_on_SaveFile3_mouse_entered"]
 [connection signal="mouse_exited" from="SaveFile3" to="." method="_on_SaveFile3_mouse_exited"]
+[connection signal="button_up" from="ResetButton1" to="." method="_on_ResetButton1_button_up"]
+[connection signal="button_up" from="ResetButton2" to="." method="_on_ResetButton2_button_up"]
+[connection signal="button_up" from="ResetButton3" to="." method="_on_ResetButton3_button_up"]
+[connection signal="button_up" from="Reset1/CloseButton1" to="." method="_on_CloseButton1_button_up"]
+[connection signal="button_up" from="Reset1/YesButton1" to="." method="_on_YesButton1_button_up"]
+[connection signal="button_up" from="Reset2/CloseButton2" to="." method="_on_CloseButton2_button_up"]
+[connection signal="button_up" from="Reset2/YesButton2" to="." method="_on_YesButton2_button_up"]
+[connection signal="button_up" from="Reset3/CloseButton3" to="." method="_on_CloseButton3_button_up"]
+[connection signal="button_up" from="Reset3/YesButton3" to="." method="_on_YesButton3_button_up"]
 [connection signal="button_up" from="BackButton" to="." method="_on_BackButton_button_up"]
