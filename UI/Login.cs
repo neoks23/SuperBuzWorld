@@ -15,19 +15,27 @@ public class Login : Control
         b = false;
         GetNode<TextureButton>("BackButton").GrabFocus();
     }
-    public override void _PhysicsProcess(float delta)
+    public override void _Process(float delta)
     {
         if (b)
         {
             GetTree().ChangeScene("res://UI/Titlescreen.tscn");
         }
+        if (Input.IsActionJustPressed("ui_cancel"))
+        {
+            _on_BackButton_button_up();
+        }
     }
     public void _on_BackButton_button_up()
     {
+        var buttonClickFx = (AudioStreamPlayer)GetNode("/root/SoundManager/ButtonClick");
+        buttonClickFx.Play();
         GetTree().ChangeScene("res://UI/Authenticator.tscn");
     }
     public void _on_LoginButton_button_up()
     {
+        var buttonClickFx = (AudioStreamPlayer)GetNode("/root/SoundManager/ButtonClick");
+        buttonClickFx.Play();
         GDScript loginDBClass = (GDScript)GD.Load("res://UI/LoginDB.gd");
         Godot.Object loginDB = (Godot.Object) loginDBClass.New();
 
@@ -52,6 +60,8 @@ public class Login : Control
     }
     public void _on_ForgotPasswordButton_button_up()
     {
+        var buttonClickFx = (AudioStreamPlayer)GetNode("/root/SoundManager/ButtonClick");
+        buttonClickFx.Play();
         GDScript loginDBClass = (GDScript)GD.Load("res://UI/LoginDB.gd");
         Godot.Object loginDB = (Godot.Object)loginDBClass.New();
         string email = GetNode<LineEdit>("Email").Text;

@@ -93,9 +93,10 @@ func _ready():
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	if Input.is_action_just_pressed("ui_cancel"):
+		_on_BackButton_button_up()
+	pass
 
 
 func _on_SaveFile1_button_up():
@@ -281,7 +282,7 @@ func _on_YesButton1_button_up():
 	var firestore_collection : FirestoreCollection = Firebase.Firestore.collection("userdata")
 	firestore_collection.get(email)
 	var query : FirestoreDocument = yield(firestore_collection, "get_document")
-	var up_task : FirestoreTask = firestore_collection.update(email, {'email': email, 'username': query.doc_fields.get("username"), 'score': 100, 'position': pos, 'insidePosition': pos, 'world': "OverWorld"})
+	var up_task : FirestoreTask = firestore_collection.update(email, {'email': email, 'username': query.doc_fields.get("username"), 'score': 0, 'position': pos, 'insidePosition': pos, 'world': "OverWorld"})
 	var document : FirestoreDocument = yield(up_task, "task_finished")
 	OS.alert("Data reset succesfully!", "Data reset")
 	get_tree().reload_current_scene()
@@ -314,7 +315,7 @@ func _on_YesButton2_button_up():
 	var firestore_collection : FirestoreCollection = Firebase.Firestore.collection("userdata1")
 	firestore_collection.get(email)
 	var query : FirestoreDocument = yield(firestore_collection, "get_document")
-	var up_task : FirestoreTask = firestore_collection.update(email, {'email': email, 'username': query.doc_fields.get("username"), 'score': 100, 'position': pos, 'insidePosition': pos, 'world': "OverWorld"})
+	var up_task : FirestoreTask = firestore_collection.update(email, {'email': email, 'username': query.doc_fields.get("username"), 'score': 0, 'position': pos, 'insidePosition': pos, 'world': "OverWorld"})
 	var document : FirestoreDocument = yield(up_task, "task_finished")
 	OS.alert("Data reset succesfully!", "Data reset")
 	get_tree().reload_current_scene()
@@ -347,7 +348,7 @@ func _on_YesButton3_button_up():
 	var firestore_collection : FirestoreCollection = Firebase.Firestore.collection("userdata2")
 	firestore_collection.get(email)
 	var query : FirestoreDocument = yield(firestore_collection, "get_document")
-	var up_task : FirestoreTask = firestore_collection.update(email, {'email': email, 'username': query.doc_fields.get("username"), 'score': 100, 'position': pos, 'insidePosition': pos, 'world': "OverWorld"})
+	var up_task : FirestoreTask = firestore_collection.update(email, {'email': email, 'username': query.doc_fields.get("username"), 'score': 0, 'position': pos, 'insidePosition': pos, 'world': "OverWorld"})
 	var document : FirestoreDocument = yield(up_task, "task_finished")
 	OS.alert("Data reset succesfully!", "Data reset")
 	get_tree().reload_current_scene()

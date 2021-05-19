@@ -15,12 +15,23 @@ public class Register : Control
     {
         GetNode<TextureButton>("RegisterDB/BackButton").GrabFocus();
     }
+    public override void _Process(float delta)
+    {
+        if (Input.IsActionJustPressed("ui_cancel"))
+        {
+            _on_BackButton_button_up();
+        }
+    }
     public void _on_BackButton_button_up()
     {
+        var buttonClickFx = (AudioStreamPlayer)GetNode("/root/SoundManager/ButtonClick");
+        buttonClickFx.Play();
         GetTree().ChangeScene("res://UI/Authenticator.tscn");
     }
     public void _on_SignUpButton_button_up()
     {
+        var buttonClickFx = (AudioStreamPlayer)GetNode("/root/SoundManager/ButtonClick");
+        buttonClickFx.Play();
         GDScript registerDBClass = (GDScript)GD.Load("res://UI/RegisterDB.gd");
         Godot.Object registerDB = (Godot.Object)registerDBClass.New();
 

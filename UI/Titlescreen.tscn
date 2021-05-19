@@ -4,13 +4,13 @@
 [ext_resource path="res://Fonts/Andalus/2.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://UI/Titlescreen.cs" type="Script" id=3]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 94
 outline_size = 4
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 64
 outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
@@ -32,14 +32,14 @@ position = Vector2( 513.737, 299.68 )
 current = true
 
 [node name="AuthenticatorLabel" type="Node2D" parent="."]
-position = Vector2( 0, -8.41847 )
+position = Vector2( 9.89948, -8.41847 )
 
 [node name="Label" type="Label" parent="AuthenticatorLabel"]
 margin_left = 204.0
 margin_top = 8.0
 margin_right = 865.0
 margin_bottom = 152.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.14902, 0.054902, 0.419608, 1 )
 text = "Super Buz World"
 align = 1
@@ -49,9 +49,9 @@ __meta__ = {
 }
 
 [node name="PlayButton" type="TextureButton" parent="."]
-margin_left = 471.0
+margin_left = 480.899
 margin_top = 224.356
-margin_right = 596.0
+margin_right = 605.899
 margin_bottom = 294.356
 __meta__ = {
 "_edit_use_anchors_": false
@@ -62,7 +62,7 @@ margin_left = -34.0
 margin_top = -16.0
 margin_right = 165.0
 margin_bottom = 82.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.356863, 0.223529, 0.0235294, 1 )
 text = "Play"
 align = 1
@@ -72,9 +72,9 @@ __meta__ = {
 }
 
 [node name="SettingsButton" type="TextureButton" parent="."]
-margin_left = 437.0
+margin_left = 446.899
 margin_top = 318.0
-margin_right = 643.0
+margin_right = 652.899
 margin_bottom = 388.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -85,7 +85,7 @@ margin_left = -38.5243
 margin_top = -11.2765
 margin_right = 245.476
 margin_bottom = 86.7235
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.356863, 0.223529, 0.0235294, 1 )
 text = "Settings"
 align = 1
@@ -95,9 +95,9 @@ __meta__ = {
 }
 
 [node name="QuitButton" type="TextureButton" parent="."]
-margin_left = 471.0
+margin_left = 480.899
 margin_top = 414.0
-margin_right = 596.0
+margin_right = 605.899
 margin_bottom = 484.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -108,7 +108,7 @@ margin_left = -34.4289
 margin_top = -13.3674
 margin_right = 169.571
 margin_bottom = 84.6326
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.356863, 0.223529, 0.0235294, 1 )
 text = "Quit"
 align = 1

@@ -20,14 +20,20 @@ public class Authenticator : Control
     }
     public void _on_SignUpButton_button_up()
     {
+        var buttonClickFx = (AudioStreamPlayer)GetNode("/root/SoundManager/ButtonClick");
+        buttonClickFx.Play();
         GetTree().ChangeScene("res://UI/Register.tscn");
     }
     public void _on_LoginButton_button_up()
     {
+        var buttonClickFx = (AudioStreamPlayer)GetNode("/root/SoundManager/ButtonClick");
+        buttonClickFx.Play();
         GetTree().ChangeScene("res://UI/Login.tscn");
     }
     public void _on_QuitButton_button_up()
     {
+        var buttonClickFx = (AudioStreamPlayer)GetNode("/root/SoundManager/ButtonClick");
+        buttonClickFx.Play();
         GetTree().Quit();
     }
     public void _on_ResetTokenButton_focus_entered()
@@ -52,6 +58,8 @@ public class Authenticator : Control
     }
     public void _on_ResetTokenButton_button_up()
     {
+        var buttonClickFx = (AudioStreamPlayer)GetNode("/root/SoundManager/ButtonClick");
+        buttonClickFx.Play();
         GetNode<Label>("ResetTokenButton/Label").RectPosition = new Vector2(6, 0);
 
         GDScript registerDBClass = (GDScript)GD.Load("res://UI/RegisterDB.gd");

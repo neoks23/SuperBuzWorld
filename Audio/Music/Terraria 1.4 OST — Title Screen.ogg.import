@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Terraria 1.4 OST — Title Screen.ogg-d49c830737009c9788a2d13d76ae6341.oggstr"
+
+[deps]
+
+source_file="res://Audio/Music/Terraria 1.4 OST — Title Screen.ogg"
+dest_files=[ "res://.import/Terraria 1.4 OST — Title Screen.ogg-d49c830737009c9788a2d13d76ae6341.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

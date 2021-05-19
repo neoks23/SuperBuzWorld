@@ -101,11 +101,15 @@ public class Bob : KinematicBody2D
             if (GetNode<Control>("EscMenu").Visible)
             {
                 GetNode<Control>("EscMenu").Visible = false;
+                var buttonClickFx = (AudioStreamPlayer)GetNode("/root/SoundManager/ButtonClick");
+                buttonClickFx.Play();
             }
             else
             {
                 GetNode<Control>("EscMenu").Visible = true;
                 GetNode<TextureButton>("EscMenu/Sprite/SaveButton").GrabFocus();
+                var buttonClickFx = (AudioStreamPlayer)GetNode("/root/SoundManager/ButtonClick");
+                buttonClickFx.Play();
             }
 
         }

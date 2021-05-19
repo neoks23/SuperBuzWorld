@@ -11,6 +11,8 @@ public class Titlescreen : Control
     public override void _Ready()
     {
         GetNode<TextureButton>("SettingsButton").GrabFocus();
+        var titleScreenAudio = (AudioStreamPlayer)GetNode("/root/MusicManager/Titlescreen");
+        titleScreenAudio.Play();
     }
 
     //Play button
@@ -33,6 +35,8 @@ public class Titlescreen : Control
     }
     public void _on_PlayButton_button_up()
     {
+        var buttonClickFx = (AudioStreamPlayer)GetNode("/root/SoundManager/ButtonClick");
+        buttonClickFx.Play();
         GetTree().ChangeScene("res://UI/SaveSelect.tscn");
     }
     //Settings Button
@@ -54,7 +58,9 @@ public class Titlescreen : Control
     }
     public void _on_SettingsButton_button_up()
     {
-        GD.Print("Hello world!");
+        var buttonClickFx = (AudioStreamPlayer)GetNode("/root/SoundManager/ButtonClick");
+        buttonClickFx.Play();
+        GetTree().ChangeScene("res://UI/Settings.tscn");
     }
 
     //Quit Button
@@ -77,6 +83,8 @@ public class Titlescreen : Control
     }
     public void _on_QuitButton_button_up()
     {
+        var buttonClickFx = (AudioStreamPlayer)GetNode("/root/SoundManager/ButtonClick");
+        buttonClickFx.Play();
         GetTree().Quit();
     }
     //  // Called every frame. 'delta' is the elapsed time since the previous frame.
