@@ -12,20 +12,6 @@ public class InsideBobWorld : Node2D
     {
         GetNode<Control>("Buz/EscMenu").Visible = false;
     }
-
-    public override void _Process(float delta)
-    {
-        var escMenu = GetNode<Control>("Buz/EscMenu");
-
-        if (escMenu.Visible) {
-            if (Input.IsActionJustPressed("ui_cancel"))
-            {
-                var buttonClickFx = (AudioStreamPlayer)GetNode("/root/SoundManager/ButtonClick");
-                buttonClickFx.Play();
-                escMenu.Visible = false;
-            }
-        }
-    }
     public void _on_SaveButton_button_up()
     {
         var buttonClickFx = (AudioStreamPlayer)GetNode("/root/SoundManager/ButtonClick");

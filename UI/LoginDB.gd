@@ -72,6 +72,7 @@ func _on_FirebaseAuth_login_succeeded(auth_info):
 func _on_FirebaseAuth_login_failed(error_code, message):
 	print("error code: " + str(error_code))
 	print("message: " + str(message))
+	OS.alert("error code: " + str(error_code) + "\nmessage: " + str(message))
 	pass
 
 func _forgot_password(email):

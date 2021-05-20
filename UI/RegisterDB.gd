@@ -10,6 +10,7 @@ var pos : Dictionary = {
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Firebase.Auth.connect("signup_succeeded", self, "_on_FirebaseAuth_signup_succeeded")
+	Firebase.Auth.connect("login_failed", self, "_on_FirebaseAuth_signup_failed")
 	pass # Replace with function body.
 
 func _register(email, username, password):
@@ -75,3 +76,8 @@ func _on_FirebaseAuth_signup_succeeded(auth_info):
 	
 	
 	pass
+
+func _on_FirebaseAuth_signup_failed(error_code, message):
+	print("error code: " + str(error_code))
+	print("message: " + str(message))
+	OS.alert("error code: " + str(error_code) + "\nmessage: " + str(message))

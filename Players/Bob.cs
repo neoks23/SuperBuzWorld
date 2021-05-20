@@ -96,22 +96,25 @@ public class Bob : KinematicBody2D
 
     public override void _PhysicsProcess(float delta)
     {
-        if (Input.IsActionJustPressed("esc"))
+        if (!GetNode<Control>("EscMenu").Visible)
         {
-            if (GetNode<Control>("EscMenu").Visible)
+            if (Input.IsActionJustPressed("esc"))
             {
-                GetNode<Control>("EscMenu").Visible = false;
-                var buttonClickFx = (AudioStreamPlayer)GetNode("/root/SoundManager/ButtonClick");
-                buttonClickFx.Play();
-            }
-            else
-            {
+
                 GetNode<Control>("EscMenu").Visible = true;
                 GetNode<TextureButton>("EscMenu/Sprite/SaveButton").GrabFocus();
                 var buttonClickFx = (AudioStreamPlayer)GetNode("/root/SoundManager/ButtonClick");
                 buttonClickFx.Play();
             }
-
+        }
+        else
+        {
+            if (Input.IsActionJustPressed("ui_cancel"))
+            {
+                GetNode<Control>("EscMenu").Visible = false;
+                var buttonClickFx = (AudioStreamPlayer)GetNode("/root/SoundManager/ButtonClick");
+                buttonClickFx.Play();
+            }
         }
 
         if (!GetNode<Control>("EscMenu").Visible)
