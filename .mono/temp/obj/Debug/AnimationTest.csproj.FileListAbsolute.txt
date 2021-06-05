@@ -26,3 +26,4 @@ D:\ImportantMap\coding\Godot\projects\SuperBuzWorld\.mono\temp\obj\Debug\Animati
 D:\ImportantMap\coding\Godot\projects\SuperBuzWorld\.mono\temp\obj\Debug\AnimationTest.AssemblyInfo.cs
 D:\ImportantMap\coding\Godot\projects\SuperBuzWorld\.mono\temp\obj\Debug\AnimationTest.dll
 D:\ImportantMap\coding\Godot\projects\SuperBuzWorld\.mono\temp\obj\Debug\AnimationTest.pdb
+D:\ImportantMap\coding\Godot\projects\OhShitITookTheWrongPill\.mono\temp\obj\Debug\AnimationTest.csproj.CoreCompileInputs.cache

@@ -11,6 +11,8 @@ public class Titlescreen : Control
     public override void _Ready()
     {
         GetNode<TextureButton>("SettingsButton").GrabFocus();
+        var musicManager = (MusicManager)GetNode("/root/MusicManager");
+        musicManager.StopAll();
         var titleScreenAudio = (AudioStreamPlayer)GetNode("/root/MusicManager/Titlescreen");
         titleScreenAudio.Play();
     }

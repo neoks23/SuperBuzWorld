@@ -11,6 +11,10 @@ public class World : Node2D
     public override void _Ready()
     {
         GetNode<Control>("Bob/EscMenu").Visible = false;
+        var musicManager = (MusicManager)GetNode("/root/MusicManager");
+        musicManager.StopAll();
+        var overWorldAudio = (AudioStreamPlayer)GetNode("/root/MusicManager/Overworld");
+        overWorldAudio.Play();
     }
     public void _on_SaveButton_button_up()
     {

@@ -12,3 +12,4 @@ D:\ImportantMap\coding\Godot\projects\OhShitITookTheWrongPill\.mono\temp\obj\Exp
 D:\ImportantMap\coding\Godot\projects\OhShitITookTheWrongPill\.mono\temp\obj\ExportRelease\AnimationTest.AssemblyInfo.cs
 D:\ImportantMap\coding\Godot\projects\OhShitITookTheWrongPill\.mono\temp\obj\ExportRelease\AnimationTest.dll
 D:\ImportantMap\coding\Godot\projects\OhShitITookTheWrongPill\.mono\temp\obj\ExportRelease\AnimationTest.pdb
+D:\ImportantMap\coding\Godot\projects\OhShitITookTheWrongPill\.mono\temp\obj\ExportRelease\AnimationTest.csproj.CoreCompileInputs.cache

@@ -11,6 +11,10 @@ public class InsideBobWorld : Node2D
     public override void _Ready()
     {
         GetNode<Control>("Buz/EscMenu").Visible = false;
+        var musicManager = (MusicManager)GetNode("/root/MusicManager");
+        musicManager.StopAll();
+        var underWorldAudio = (AudioStreamPlayer)GetNode("/root/MusicManager/Underworld");
+        underWorldAudio.Play();
     }
     public void _on_SaveButton_button_up()
     {

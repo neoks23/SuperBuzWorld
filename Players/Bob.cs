@@ -6,12 +6,14 @@ public class Bob : KinematicBody2D
     [Export] public int speed = 200;
     [Export] public float runSpeed = 1.2f;
     [Export] public int jumpHeight = 400;
+    public static int score = 0;
 
     public Vector2 velocity;
     private AnimationTree animtree;
     private AnimationNodeStateMachinePlayback stateMachine;
     private bool isRunning;
     private float gravity = 10f;
+    private ParallaxBackground pbg;
 
     private Vector2 FLOOR_NORMAL = Vector2.Up;
     private float SNAP_LENGTH = 32.0f;
@@ -27,6 +29,7 @@ public class Bob : KinematicBody2D
         snapVector = new Vector2(0, SNAP_LENGTH);
         velocity = new Vector2();
         animtree = GetNode("AnimationTree") as AnimationTree;
+        pbg = GetNode("ParallaxBackground") as ParallaxBackground;
         animtree.GetRootMotionTransform();
         stateMachine = (AnimationNodeStateMachinePlayback)animtree.Get("parameters/playback");
         isRunning = false;
@@ -53,6 +56,7 @@ public class Bob : KinematicBody2D
                 velocity.x = speed;
             }
             ChangeAnimationState("Run");
+            WalkFx();
         }
         else if (Input.IsActionPressed("left"))
         {
@@ -65,16 +69,26 @@ public class Bob : KinematicBody2D
                 velocity.x = -speed;
             }
             ChangeAnimationState("Run");
+            WalkFx();
         }
         else
         {
             velocity.x = 0;
             ChangeAnimationState("Idle");
+            var stepFx = (AudioStreamPlayer)GetNode("/root/SoundManager/Step");
+            stepFx.Stop();
+        }
+        if (!IsOnFloor())
+        {
+            var stepFx = (AudioStreamPlayer)GetNode("/root/SoundManager/Step");
+            stepFx.Stop();
         }
         if (Input.IsActionJustPressed("up") && IsOnFloor())
         {
             velocity.y += -jumpHeight;
             jumping = true;
+            var jumpFx = (AudioStreamPlayer)GetNode("/root/SoundManager/Jump");
+            jumpFx.Play();
         }
         if (jumping && velocity.y >= 0)
         {
@@ -127,7 +141,21 @@ public class Bob : KinematicBody2D
             animtree.Set("parameters/Run/blend_position", velocity.x);
 
             velocity = MoveAndSlideWithSnap(velocity * delta * 60, snapVector, FLOOR_NORMAL, true, 4, FLOOR_MAX_ANGLE);
+
+            pbg.Offset = new Vector2(Position.x / 10, (Position.y / 10) + 200);
+            
         }        
+    }
+    public void WalkFx()
+    {
+        if (IsOnFloor())
+        {
+            var stepFx = (AudioStreamPlayer)GetNode("/root/SoundManager/Step");
+            if (!stepFx.Playing)
+            {
+                stepFx.Play();
+            }
+        }
     }
     public void Slope()
     {

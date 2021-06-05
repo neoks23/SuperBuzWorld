@@ -3,7 +3,6 @@
 [ext_resource path="res://sprites/BuzSpriteSheet.png" type="Texture" id=1]
 [ext_resource path="res://Players/Buz.cs" type="Script" id=2]
 
-
 [sub_resource type="Animation" id=1]
 resource_name = "LeftTransition"
 length = 0.5
