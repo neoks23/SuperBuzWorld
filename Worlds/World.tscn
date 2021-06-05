@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Players/Bob.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sprites/TileMap.tscn" type="PackedScene" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://UI/SaveData.gd" type="Script" id=13]
 [ext_resource path="res://sprites/UI/buttonsSelected.png" type="Texture" id=14]
 [ext_resource path="res://sprites/UI/smallButtonNormalPressed.png" type="Texture" id=15]
+[ext_resource path="res://sprites/Objects/Items/coin.tscn" type="PackedScene" id=16]
 
 [sub_resource type="DynamicFont" id=1]
 size = 20
@@ -44,6 +45,35 @@ position = Vector2( 96, 16 )
 position = Vector2( 120, -24 )
 scale = Vector2( 0.0571429, 0.0533333 )
 texture = ExtResource( 5 )
+
+[node name="Items" type="Node2D" parent="Objects"]
+
+[node name="Coin" parent="Objects/Items" instance=ExtResource( 16 )]
+position = Vector2( 600.447, -96.0401 )
+
+[node name="Coin2" parent="Objects/Items" instance=ExtResource( 16 )]
+position = Vector2( 600.447, -118.635 )
+
+[node name="Coin3" parent="Objects/Items" instance=ExtResource( 16 )]
+position = Vector2( 600.447, -141.283 )
+
+[node name="Coin4" parent="Objects/Items" instance=ExtResource( 16 )]
+position = Vector2( 620.091, -141.283 )
+
+[node name="Coin5" parent="Objects/Items" instance=ExtResource( 16 )]
+position = Vector2( 639.339, -141.283 )
+
+[node name="Coin6" parent="Objects/Items" instance=ExtResource( 16 )]
+position = Vector2( 639.339, -118.635 )
+
+[node name="Coin7" parent="Objects/Items" instance=ExtResource( 16 )]
+position = Vector2( 620.091, -118.635 )
+
+[node name="Coin8" parent="Objects/Items" instance=ExtResource( 16 )]
+position = Vector2( 620.091, -96.0401 )
+
+[node name="Coin9" parent="Objects/Items" instance=ExtResource( 16 )]
+position = Vector2( 639.339, -96.0401 )
 
 [node name="Bob" parent="." instance=ExtResource( 1 )]
 position = Vector2( 32, 0 )

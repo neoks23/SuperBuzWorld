@@ -23,7 +23,7 @@ public class World : Node2D
         GDScript saveDataGDClass = (GDScript)GD.Load("res://UI/SaveData.gd");
         Godot.Object saveDataGD = (Godot.Object)saveDataGDClass.New();
         KinematicBody2D bob = GetNode<KinematicBody2D>("Bob");
-        saveDataGD.Call("_save_data", bob.Position, Authenticator.insidePos, Authenticator.saveFile, Authenticator.world);
+        saveDataGD.Call("_save_data", bob.Position, Authenticator.insidePos, Authenticator.saveFile, Authenticator.world, Bob.score);
     }
     public void _on_MainMenuButton_button_up()
     {

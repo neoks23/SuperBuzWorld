@@ -26,6 +26,10 @@ var x6
 var y6
 var z6
 
+var score
+var score2
+var score3
+
 func _ready():
 	get_node("SaveFile1").grab_focus()
 	
@@ -36,7 +40,7 @@ func _ready():
 	var firestore_collection : FirestoreCollection = Firebase.Firestore.collection("userdata")
 	firestore_collection.get(email)
 	var document : FirestoreDocument = yield(firestore_collection, "get_document")
-	var score = document.doc_fields.get("score")
+	score = document.doc_fields.get("score")
 	var username = document.doc_fields.get("username")
 	var pos = document.doc_fields.get("position")
 	var ipos = document.doc_fields.get("insidePosition")
@@ -51,7 +55,7 @@ func _ready():
 	var firestore_collection2 : FirestoreCollection = Firebase.Firestore.collection("userdata1")
 	firestore_collection2.get(email)
 	var document2 : FirestoreDocument = yield(firestore_collection2, "get_document")
-	var score2 = document2.doc_fields.get("score")
+	score2 = document2.doc_fields.get("score")
 	var username2 = document2.doc_fields.get("username")
 	var pos2 = document2.doc_fields.get("position")
 	var ipos2 = document2.doc_fields.get("insidePosition")
@@ -66,7 +70,7 @@ func _ready():
 	var firestore_collection3 : FirestoreCollection = Firebase.Firestore.collection("userdata2")
 	firestore_collection3.get(email)
 	var document3 : FirestoreDocument = yield(firestore_collection3, "get_document")
-	var score3 = document3.doc_fields.get("score")
+	score3 = document3.doc_fields.get("score")
 	var username3 = document3.doc_fields.get("username")
 	var pos3 = document3.doc_fields.get("position")
 	var ipos3 = document3.doc_fields.get("insidePosition")
@@ -105,6 +109,7 @@ func _on_SaveFile1_button_up():
 	staticInteractorNode.SetPos(x,y,z)
 	staticInteractorNode.SetInsidePos(x4,y4,z4)
 	staticInteractorNode.SetSaveFile(0)
+	staticInteractorNode.SetScore(score)
 	var email = staticInteractorNode.GetEmail()
 	var firestore_collection : FirestoreCollection = Firebase.Firestore.collection("userdata")
 	firestore_collection.get(email)
@@ -124,6 +129,7 @@ func _on_SaveFile2_button_up():
 	staticInteractorNode.SetPos(x2,y2,z2)
 	staticInteractorNode.SetInsidePos(x5,y5,z5)
 	staticInteractorNode.SetSaveFile(1)
+	staticInteractorNode.SetScore(score2)
 	var email = staticInteractorNode.GetEmail()
 	var firestore_collection : FirestoreCollection = Firebase.Firestore.collection("userdata1")
 	firestore_collection.get(email)
@@ -143,6 +149,7 @@ func _on_SaveFile3_button_up():
 	staticInteractorNode.SetPos(x3,y3,z3)
 	staticInteractorNode.SetInsidePos(x6,y6,z6)
 	staticInteractorNode.SetSaveFile(2)
+	staticInteractorNode.SetScore(score3)
 	var email = staticInteractorNode.GetEmail()
 	var firestore_collection : FirestoreCollection = Firebase.Firestore.collection("userdata2")
 	firestore_collection.get(email)

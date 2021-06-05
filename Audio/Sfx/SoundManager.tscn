@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Audio/Sfx/button-16.wav" type="AudioStream" id=1]
 [ext_resource path="res://Audio/Sfx/step.wav" type="AudioStream" id=2]
 [ext_resource path="res://Audio/Sfx/jump.wav" type="AudioStream" id=3]
+[ext_resource path="res://Audio/Sfx/coin.wav" type="AudioStream" id=4]
 
 [sub_resource type="CSharpScript" id=1]
 resource_name = "SoundManager"
@@ -42,4 +43,8 @@ volume_db = -11.274
 
 [node name="Jump" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
+volume_db = -11.274
+
+[node name="Coin" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
 volume_db = -11.274

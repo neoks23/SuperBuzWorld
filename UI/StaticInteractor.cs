@@ -40,4 +40,8 @@ public class StaticInteractor : Control
     {
         Authenticator.insidePos = new Vector3(x, y, z);
     }
+    public void SetScore(int score)
+    {
+        Bob.score = score;
+    }
 }
