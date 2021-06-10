@@ -7,6 +7,8 @@ public class Bob : KinematicBody2D
     [Export] public float runSpeed = 1.2f;
     [Export] public int jumpHeight = 400;
     public static int score = 0;
+    public static bool isStrong = false;
+    public static float strongTimer = 0.0f;
 
     public Vector2 velocity;
     private AnimationTree animtree;
@@ -114,7 +116,7 @@ public class Bob : KinematicBody2D
         {
             if (Input.IsActionJustPressed("esc"))
             {
-
+                GetNode<Control>("Map").Visible = false;
                 GetNode<Control>("EscMenu").Visible = true;
                 GetNode<TextureButton>("EscMenu/Sprite/SaveButton").GrabFocus();
                 var buttonClickFx = (AudioStreamPlayer)GetNode("/root/SoundManager/ButtonClick");
@@ -123,7 +125,7 @@ public class Bob : KinematicBody2D
         }
         else
         {
-            if (Input.IsActionJustPressed("ui_cancel"))
+            if (Input.IsActionJustPressed("ui_cancel") || Input.IsActionJustPressed("esc"))
             {
                 GetNode<Control>("EscMenu").Visible = false;
                 var buttonClickFx = (AudioStreamPlayer)GetNode("/root/SoundManager/ButtonClick");
@@ -131,7 +133,27 @@ public class Bob : KinematicBody2D
             }
         }
 
-        if (!GetNode<Control>("EscMenu").Visible)
+        if (!GetNode<Control>("Map").Visible)
+        {
+            if (Input.IsActionJustPressed("map"))
+            {
+                GetNode<Control>("EscMenu").Visible = false;
+                GetNode<Control>("Map").Visible = true;
+                var buttonClickFx = (AudioStreamPlayer)GetNode("/root/SoundManager/ButtonClick");
+                buttonClickFx.Play();
+            }
+        }
+        else
+        {
+            if (Input.IsActionJustPressed("ui_cancel") || Input.IsActionJustPressed("map"))
+            {
+                GetNode<Control>("Map").Visible = false;
+                var buttonClickFx = (AudioStreamPlayer)GetNode("/root/SoundManager/ButtonClick");
+                buttonClickFx.Play();
+            }
+        }
+
+        if (!GetNode<Control>("EscMenu").Visible && !GetNode<Control>("Map").Visible)
         {
             Slope();
             GetInput();
@@ -143,6 +165,15 @@ public class Bob : KinematicBody2D
             velocity = MoveAndSlideWithSnap(velocity * delta * 60, snapVector, FLOOR_NORMAL, true, 4, FLOOR_MAX_ANGLE);
 
             pbg.Offset = new Vector2(Position.x / 10, (Position.y / 10) + 200);
+
+            if (isStrong)
+            {
+                strongTimer -= delta;
+                if(strongTimer <= 0.0f)
+                {
+                    isStrong = false;
+                }
+            }
             
         }        
     }

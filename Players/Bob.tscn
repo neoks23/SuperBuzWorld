@@ -140,6 +140,7 @@ radius = 7.11288
 height = 28.7242
 
 [node name="Bob" type="KinematicBody2D"]
+collision_mask = 17
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]

@@ -130,7 +130,7 @@ public class Buz : KinematicBody2D
         {
             if (Input.IsActionJustPressed("esc"))
             {
-
+                GetNode<Control>("Map").Visible = false;
                 GetNode<Control>("EscMenu").Visible = true;
                 GetNode<TextureButton>("EscMenu/Sprite/SaveButton").GrabFocus();
                 var buttonClickFx = (AudioStreamPlayer)GetNode("/root/SoundManager/ButtonClick");
@@ -139,7 +139,7 @@ public class Buz : KinematicBody2D
         }
         else
         {
-            if (Input.IsActionJustPressed("ui_cancel"))
+            if (Input.IsActionJustPressed("ui_cancel") || Input.IsActionJustPressed("esc"))
             {
                 GetNode<Control>("EscMenu").Visible = false;
                 var buttonClickFx = (AudioStreamPlayer)GetNode("/root/SoundManager/ButtonClick");
@@ -147,7 +147,27 @@ public class Buz : KinematicBody2D
             }
         }
 
-        if (!GetNode<Control>("EscMenu").Visible)
+        if (!GetNode<Control>("Map").Visible)
+        {
+            if (Input.IsActionJustPressed("map"))
+            {
+                GetNode<Control>("EscMenu").Visible = false;
+                GetNode<Control>("Map").Visible = true;
+                var buttonClickFx = (AudioStreamPlayer)GetNode("/root/SoundManager/ButtonClick");
+                buttonClickFx.Play();
+            }
+        }
+        else
+        {
+            if (Input.IsActionJustPressed("ui_cancel") || Input.IsActionJustPressed("map"))
+            {
+                GetNode<Control>("Map").Visible = false;
+                var buttonClickFx = (AudioStreamPlayer)GetNode("/root/SoundManager/ButtonClick");
+                buttonClickFx.Play();
+            }
+        }
+
+        if (!GetNode<Control>("EscMenu").Visible && !GetNode<Control>("Map").Visible)
         {
             Slope();
             GetInput();

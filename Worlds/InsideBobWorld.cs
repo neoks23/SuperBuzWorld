@@ -37,4 +37,8 @@ public class InsideBobWorld : Node2D
         buttonClickFx.Play();
         GetTree().Quit();
     }
+    public void _on_WaterCollider_body_entered(Node body)
+    {
+        GetTree().ReloadCurrentScene();
+    }
 }

@@ -263,6 +263,7 @@ radius = 6.40872
 height = 31.2781
 
 [node name="Buz" type="KinematicBody2D"]
+collision_mask = 17
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
